@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    background-color: black;
+    border: solid 5px grey;
+   
+}
+
+.bread {
+    /* STOP ADDING FUCKING TOO MANY FLEX CONTAINERS DIPSHIT */
+
+}
+
+.filling {
+    
+    
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    
+
+    
+
+}
