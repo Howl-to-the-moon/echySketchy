@@ -1,5 +1,6 @@
     //Step 1. Created a 2x2 grid.
 
+//gets a random color. 
 
         function getRandomColorRGB() {
       const r = Math.floor(Math.random() * 256); // Random red value (0-255)
@@ -8,16 +9,32 @@
       return `rgb(${r},${g},${b})`;
     }
 
-    const container = document.querySelector(".container")
+
+    function getAmount(){
+
+        const amount = prompt("Enter the amount of squares 16-100");
+
+        while (amount < 16 || amount > 100) {
+            alert("Try again ding dong");
+            return getAmount();
+        }
+
+        return amount;
+    }
+
 
     
 
-    for (let i = 0; i < 16 ; i++ ){
+    function etchSketch (square) {
+
+        const container = document.querySelector(".container")
+
+    for (let i = 0; i < square ; i++ ){
 
         const bread = document.createElement("div");
 
         
-            for (let i = 0; i < 16 ; i++){
+            for (let i = 0; i < square ; i++){
 
                 const filling = document.createElement("div");
                 filling.classList.add("filling");
@@ -33,4 +50,15 @@
 
     };
 
+};
+
+let resetB = document.querySelector("button");
+
+resetB.addEventListener("click", ()=> {
+
+    etchSketch(getAmount());
+
+});
+
+etchSketch(16);
     
