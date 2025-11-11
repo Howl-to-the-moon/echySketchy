@@ -14,31 +14,38 @@
 
         const amount = prompt("Enter the amount of squares 16-100");
 
-        while (amount < 16 || amount > 100) {
+        while (amount < 16 || amount > 100 ) {
             alert("Try again ding dong");
+
+            console.log("while loop in gA")
             return getAmount();
         }
 
+        console.log("get amount")
+
         return amount;
+
+
     }
 
-
-    
+const glombo = document.querySelector(".glombo");
+const resetB = document.querySelector("button");
 
     function etchSketch (square) {
 
-        const container = document.querySelector(".container")
+    const container = document.createElement("div")
+    container.classList.add("container");
 
     for (let i = 0; i < square ; i++ ){
 
-        const bread = document.createElement("div");
+        const horizontal = document.createElement("div");
 
         
             for (let i = 0; i < square ; i++){
 
                 const filling = document.createElement("div");
                 filling.classList.add("filling");
-                bread.appendChild(filling);
+                horizontal.appendChild(filling);
 
                 filling.addEventListener("mouseenter", () => {
         filling.style.backgroundColor = getRandomColorRGB();
@@ -46,19 +53,36 @@
 
             };
 
-        container.appendChild(bread);
+        container.appendChild(horizontal);
+        glombo.appendChild(container);
 
     };
 
-};
+    
+ 
 
-let resetB = document.querySelector("button");
+    resetB.addEventListener("mouseup", ()=> {
 
-resetB.addEventListener("click", ()=> {
+//FIX THIS AROUND TO MAKE REMOVING AND RESETING WORK
+//this is still hella broken and keeps doubling or sonmething but it works for now so yay. fuck me
+
+
+    glombo.removeChild(container);
+
+        console.log("a")
 
     etchSketch(getAmount());
 
+    console.log("B");
+
 });
+    
+
+};
+
+
+
+
 
 etchSketch(16);
     
