@@ -2,6 +2,8 @@
 
 //gets a random color. works, fine, nothing wrong with this
 
+
+
         function getRandomColorRGB() {
       const r = Math.floor(Math.random() * 256); // Random red value (0-255)
       const g = Math.floor(Math.random() * 256); // Random green value (0-255)
@@ -14,6 +16,7 @@
 Basically it just gets the amount from the user, and calls itself again if they fuck up.
 the console logs only go off once so this isn't the part thats looping.
 */
+
 
     function getAmount(){
 
@@ -60,14 +63,22 @@ then we append filling to horizontal each time. and also place the color changin
 
 */
 
+
+
+
+
+
 const glombo = document.querySelector(".glombo");
 const resetB = document.querySelector("button");
 
     function etchSketch (square) {
 
+        
+const squareSize = 640 / square;
+
         const container = document.createElement("div")
         container.classList.add("container");
-        glombo.appendChild(container);
+        
 
     for (let i = 0; i < square ; i++ ){
 
@@ -75,11 +86,12 @@ const resetB = document.querySelector("button");
 
         
             for (let i = 0; i < square ; i++){
+                
 
                 const filling = document.createElement("div");
                 filling.classList.add("filling");
-                filling.style.width = (960 / square);
-                filling.style.height = (960 / square);
+                filling.style.width = `${squareSize}px`;
+                filling.style.height = `${squareSize}px`;
 
                 horizontal.appendChild(filling);
 
@@ -90,14 +102,11 @@ const resetB = document.querySelector("button");
             };
 
         container.appendChild(horizontal);
-        
+        glombo.appendChild(container);
 
     };
 
-    
- 
-
-    resetB.addEventListener("mouseup", ()=> {
+       resetB.addEventListener("mouseup", ()=> {
 
 //FIX THIS AROUND TO MAKE REMOVING AND RESETING WORK
 //this is still hella broken and keeps doubling or sonmething but it works for now so yay. fuck me
@@ -122,4 +131,3 @@ const resetB = document.querySelector("button");
 
 
 etchSketch(16);
-    
